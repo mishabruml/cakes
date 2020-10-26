@@ -26,6 +26,16 @@ describe('cakes', () => {
       recipe: { },
       available: { courgette: 1 },
       expected: 0
+    },
+    {
+      recipe: { flour: 100 },
+      available: { flour: 'foo' },
+      expected: 0
+    },
+    {
+      recipe: { flour: 'foo' },
+      available: { flour: 100 },
+      expected: 0
     }
   ]) {
     test(`GIVEN ${JSON.stringify(recipe)} recipe AND ${JSON.stringify(available)} available
