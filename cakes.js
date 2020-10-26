@@ -1,7 +1,11 @@
 export const cakes = (recipe, available) => {
   // validate the recipe and available ingredients
   // would have used something like Joi here but kept it dependency-free
-  const validObject = o => typeof o === 'object' && Object.keys(o).length > 0
+  const validObject = o =>
+    typeof o === 'object' &&
+    Object.keys(o).length > 0 &&
+    Object.values(o).every(value => typeof value === 'number' && value >= 0)
+
   if (!validObject(recipe) || !validObject(available)) return 0
 
   const recipeIngredients = Object.keys(recipe)
